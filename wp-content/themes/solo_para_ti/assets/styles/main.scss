@@ -1,0 +1,66 @@
+@import "common/_variables";
+@import "common/_mixins";
+
+// Automatically injected Bower dependencies via wiredep (never manually edit this block)
+// bower:scss
+@import "../../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+@import "common/global";
+@import "components/buttons";
+@import "components/comments";
+@import "components/forms";
+@import "components/grid";
+@import "components/wp-classes";
+@import "layouts/header";
+@import "layouts/sidebar";
+@import "layouts/footer";
+@import "layouts/pages";
+@import "layouts/posts";
+@import "layouts/tinymce";
+@import "../fonts/fonts";
+
+
+/*common
+========================================================================*/
+
+@import "common/header/_c-header";
+@import "common/footer/_c-footer";
+
+@import "common/home/_c-home";
+@import "common/experiencias/_c-experiencias";
+@import "common/commerce/_c-commerce";
+@import "common/nosotros/_c-nosotros";
+@import "common/preguntas/_c-preguntas";
+
+
+/*desktop styles
+========================================================================*/
+@media only screen and (min-width:769px) {
+
+    @import "desktop/common/_d-header";
+    @import "desktop/common/_d-footer";
+
+    @import "desktop/home/_d-home";
+    @import "desktop/experiencias/_d-experiencias";
+    @import "desktop/commerce/_d-commerce";
+    @import "desktop/nosotros/_d-nosotros";
+    @import "desktop/preguntas/_d-preguntas";
+
+}
+
+
+/*mobile styles
+========================================================================*/
+@media only screen and (max-width:768px){
+
+    @import "mobile/common/_m-header";
+    @import "mobile/common/_m-footer";
+
+    @import "mobile/home/_m-home";
+    @import "mobile/experiencias/_m-experiencias";
+    @import "mobile/commerce/_m-commerce";
+    @import "mobile/nosotros/_m-nosotros";
+    @import "mobile/preguntas/_m-preguntas";
+
+}

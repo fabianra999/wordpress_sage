@@ -1,0 +1,31 @@
+/*SYNTAX
+=================================================*/
+/*mixin*/
+@mixin border-radius($radius) {
+    border-radius: $radius;
+}
+.box { @include border-radius(10px); }
+
+/*extend*/
+/*.messagedosdos {
+    @extend .message;
+}*/
+
+
+
+/*extend
+=================================================*/
+.mostrar {
+    display: block !important;
+    visibility: visible !important;
+}
+.clearfix {
+    &::before,
+    &::after {
+        content: " ";
+        display: table;
+    }
+    &::after {
+        clear: both;
+    }
+}
