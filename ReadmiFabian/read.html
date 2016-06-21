@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <title>Starter Template for Bootstrap 3.3.6</title>
+        <link rel="shortcut icon" href="">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css">
+        <style>body{padding-top:50px;}.starter-template{padding:40px 15px;text-align:center;}</style>
+
+        <!--[if IE]>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+    </head>
+
+    <body>
+
+        <div class="container">
+            <div class="starter-template">
+                <h1>Wordpress inicio de tema con sage</h1>
+                <p class="lead">Quitarle a las etiquetas php "|-  -|" al final y al princpio y poner  mayorq menorq</p>
+            </div>
+        </div>
+        <ul>
+            <li> descargar tema sage de https://roots.io/  </li>
+            <li> descargar plugin magic-fields-2 plugin</li>
+            <li>configurar wp-config base de datos y agregar al final <br>
+                //config tema sage <br>
+                define('WP_ENV', 'development');<br>
+            </li>
+            <li>crear tp homo o el que se quiera con un comentario que nos permite escoger en wordpress la pagina <br>
+                php |-?php /* Template Name: Home */ ?-| <br>
+
+            </li>
+            <li>importar tpl cuado por ejemplo el home se divide en nosotros, temas y se quiere traer al home<br>
+                |-?php get_template_part('home/nosotros'); -?| <br>
+                |-?php get_template_part('home/temas'); -?|
+            </li>
+            <li>
+                para llamar post types de magic field el markup  <br>
+                |-?php query_posts('post_type=beneficios'); <br>
+                while (have_posts()) : the_post(); ?-| <br>
+
+                <!-- mi markup --> <br>
+                <!-- campo magic field --> <br>
+
+                |-?php endwhile; ?-|
+            </li>
+            <li>
+                Traer campo de magic field dentro de post types <br>
+                |-?php echo get('quienes_somos_contenido'); ?-|
+            </li>
+            <li>
+                traer  grupo duplicable con magic field :donde ('listado_beneficios_beneficio'); es el nombre del grupo <br>
+                <!-- Listar los beneficios: repeat --> <br>
+                |-?php <br>
+                $beneficios = get_field('listado_beneficios_beneficio'); <br>
+                foreach($beneficios as $key => $beneficio) : <br>
+                $claseB = ($key % 2 == 0) ? 'odd' : 'even'; <br>
+                ?-| <br>
+
+                |-div class="col-xs-12 col-sm-5 col-sm-offset-1 alingTop col-centered |-?php echo $claseB; ?-| "-| <br>
+                |-p-| |-?php echo $beneficio; ?-| |-/p-| <br>
+                |-/div-| <br>
+                |-?php endforeach; ?-| <br>
+            </li>
+            <li>
+                traer campo de un grupo donde get_group('quieres_footer') es el nombre del grupo y 'quieres_footer_btn_url' es el campo. <br>
+                |-div class="content content_btn_footer"-| <br>
+                |-?php <br>
+                $elements = get_group('quieres_footer'); <br>
+                foreach($elements as $key => $element){  <br>
+                print "|-a href=".$element['quieres_footer_btn_url'][1].">". $element['quieres_footer_btn_titulo'][1] ."|-/a-|"; <br>
+                } <br>
+                ?-|
+                |-/div-|
+            </li>
+            <li>
+                <a href="https://www.advancedcustomfields.com/resources/"> documentacion</a>
+            </li>
+        </ul>
+
+
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    </body>
+</html>
